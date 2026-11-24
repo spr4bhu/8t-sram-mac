@@ -1,0 +1,14 @@
+include "sram8t.scs"
+subckt cim_column8 BL BLB GND PRE_B RBL RWL0 RWL1 RWL2 RWL3 RWL4 RWL5 RWL6 \
+        RWL7 VDD WWL0 WWL1 WWL2 WWL3 WWL4 WWL5 WWL6 WWL7
+    PM0 (RBL PRE_B VDD VDD) pmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u \
+        pd=5.2u m=(1)*(1)
+    XC7 (BL BLB GND RBL RWL7 VDD WWL7) sram8t
+    XC6 (BL BLB GND RBL RWL6 VDD WWL6) sram8t
+    XC5 (BL BLB GND RBL RWL5 VDD WWL5) sram8t
+    XC4 (BL BLB GND RBL RWL4 VDD WWL4) sram8t
+    XC3 (BL BLB GND RBL RWL3 VDD WWL3) sram8t
+    XC2 (BL BLB GND RBL RWL2 VDD WWL2) sram8t
+    XC1 (BL BLB GND RBL RWL1 VDD WWL1) sram8t
+    XC0 (BL BLB GND RBL RWL0 VDD WWL0) sram8t
+ends cim_column8

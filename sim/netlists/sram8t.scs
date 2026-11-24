@@ -1,0 +1,18 @@
+subckt sram8t BL BLB GND RBL RWL VDD WWL
+    PM2 (VDD Qbar Q VDD) pmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u \
+        pd=5.2u m=(1)*(1)
+    PM0 (Qbar Q VDD VDD) pmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u \
+        pd=5.2u m=(1)*(1)
+    NM5 (net6 Qbar GND GND) nmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u \
+        pd=5.2u m=(1)*(1)
+    NM9 (BLB WWL Qbar GND) nmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u \
+        pd=5.2u m=(1)*(1)
+    NM8 (RBL RWL net6 GND) nmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u \
+        pd=5.2u m=(1)*(1)
+    NM7 (Q WWL BL GND) nmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u pd=5.2u \
+        m=(1)*(1)
+    NM0 (Qbar Q GND GND) nmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u \
+        pd=5.2u m=(1)*(1)
+    NM6 (GND Qbar Q GND) nmos1 w=(2u) l=180n as=1.2p ad=1.2p ps=5.2u \
+        pd=5.2u m=(1)*(1)
+ends sram8t

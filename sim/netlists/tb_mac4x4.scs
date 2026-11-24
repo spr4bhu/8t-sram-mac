@@ -1,0 +1,31 @@
+include "cim_column8.scs"
+C_B0 (RBL_B0 0) capacitor c=C_rbl
+C_B1 (RBL_B1 0) capacitor c=C_rbl
+C_B2 (RBL_B2 0) capacitor c=C_rbl
+C_B3 (RBL_B3 0) capacitor c=C_rbl
+V_BLB (BLB 0) vsource dc=1.8 type=dc
+V_BL (BL 0) vsource dc=1.8 type=dc
+V_VDD (VDD 0) vsource dc=1.8 type=dc
+V_RWL3 (RWL3 0) vsource type=pulse val0=0 val1=1.8*(floor(x3/pow(2,j)) - 2*floor(x3/pow(2,j+1))) \
+         period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL2 (RWL2 0) vsource type=pulse val0=0 val1=1.8*(floor(x2/pow(2,j)) - 2*floor(x2/pow(2,j+1))) \
+         period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL1 (RWL1 0) vsource type=pulse val0=0 val1=1.8*(floor(x1/pow(2,j)) - 2*floor(x1/pow(2,j+1))) \
+         period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL0 (RWL0 0) vsource type=pulse val0=0 val1=1.8*(floor(x0/pow(2,j)) - 2*floor(x0/pow(2,j+1))) \
+         period=200n delay=3n rise=50p fall=50p width=t_eval
+V_PRE (PRE_B 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=2n \
+        rise=50p fall=50p width=100n
+XB0 (BL BLB 0 PRE_B RBL_B0 RWL0 RWL1 RWL2 RWL3 0 0 0 0 VDD 0 0 0 0 0 0 0 \
+        0) cim_column8
+XB1 (BL BLB 0 PRE_B RBL_B1 RWL0 RWL1 RWL2 RWL3 0 0 0 0 VDD 0 0 0 0 0 0 0 \
+        0) cim_column8
+XB2 (BL BLB 0 PRE_B RBL_B2 RWL0 RWL1 RWL2 RWL3 0 0 0 0 VDD 0 0 0 0 0 0 0 \
+        0) cim_column8
+XB3 (BL BLB 0 PRE_B RBL_B3 RWL0 RWL1 RWL2 RWL3 0 0 0 0 VDD 0 0 0 0 0 0 0 \
+        0) cim_column8
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3
+tran tran stop=10n errpreset=conservative
+save RWL0 RWL1 RWL2 RWL3 RBL_B0 RBL_B1 RBL_B2 RBL_B3

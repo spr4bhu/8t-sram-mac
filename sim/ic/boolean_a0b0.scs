@@ -1,0 +1,9 @@
+simulator lang=spectre
+ic XCOL.XC0.Q=1.8 XCOL.XC0.Qbar=0
+ic XCOL.XC1.Q=1.8 XCOL.XC1.Qbar=0
+ic XCOL.XC2.Q=0 XCOL.XC2.Qbar=1.8
+ic XCOL.XC3.Q=0 XCOL.XC3.Qbar=1.8
+ic XCOL.XC4.Q=0 XCOL.XC4.Qbar=1.8
+ic XCOL.XC5.Q=0 XCOL.XC5.Qbar=1.8
+ic XCOL.XC6.Q=0 XCOL.XC6.Qbar=1.8
+ic XCOL.XC7.Q=0 XCOL.XC7.Qbar=1.8

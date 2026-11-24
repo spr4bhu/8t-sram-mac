@@ -1,0 +1,11 @@
+# Cadence session files
+*.cdslck
+*.cdslck.*
+CDS.log*
+*.oa-
+
+# Python
+__pycache__/
+
+# OS
+.DS_Store

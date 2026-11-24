@@ -1,0 +1,30 @@
+include "cim_column8.scs"
+V_PRE (net13 0) vsource type=pulse val0=0 val1=1.8 period=200n delay=2n \
+        rise=50p fall=50p width=100n
+V_RWL7 (net5 0) vsource type=pulse val0=0 val1=1.8*min(max(k-7,0),1) \
+        period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL6 (net4 0) vsource type=pulse val0=0 val1=1.8*min(max(k-6,0),1) \
+        period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL5 (net3 0) vsource type=pulse val0=0 val1=1.8*min(max(k-5,0),1) \
+        period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL4 (net2 0) vsource type=pulse val0=0 val1=1.8*min(max(k-4,0),1) \
+        period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL3 (net1 0) vsource type=pulse val0=0 val1=1.8*min(max(k-3,0),1) \
+        period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL2 (net6 0) vsource type=pulse val0=0 val1=1.8*min(max(k-2,0),1) \
+        period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL1 (net7 0) vsource type=pulse val0=0 val1=1.8*min(max(k-1,0),1) \
+        period=200n delay=3n rise=50p fall=50p width=t_eval
+V_RWL0 (net8 0) vsource type=pulse val0=0 val1=1.8*min(max(k-0,0),1) \
+        period=200n delay=3n rise=50p fall=50p width=t_eval
+V_BL (net10 0) vsource dc=1.8 type=dc
+V_BLB (net9 0) vsource dc=1.8 type=dc
+VDD (net12 0) vsource dc=1.8 type=dc
+C_RBL (RBL 0) capacitor c=C_rbl
+XCOL (net10 net9 0 net13 RBL net8 net7 net6 net1 net2 net3 net4 net5 net12 \
+        0 0 0 0 0 0 0 0) cim_column8
+simulatorOptions options reltol=1e-3 vabstol=1e-6 iabstol=1e-12 temp=27 \
+    tnom=27 scalem=1.0 scale=1.0 gmin=1e-12 rforce=1 maxnotes=5 maxwarns=5 \
+    digits=5 cols=80 pivrel=1e-3
+tran tran stop=10n errpreset=conservative
+save RBL
